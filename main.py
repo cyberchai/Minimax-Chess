@@ -25,21 +25,6 @@ def init_set():
     print('\n')
     return comp
 
-"""
-def init_board():
-    # Black pieces are lower case, white pieces are upper case.
-    return [
-        ['r', 'n', 'b', 'q', 'k', 'b', 'n', 'r'],
-        ['p', 'p', 'p', 'p', 'p', 'p', 'p', 'p'],
-        [' ', ' ', ' ', ' ', ' ', ' ', ' ', ' '],
-        [' ', ' ', ' ', ' ', ' ', ' ', ' ', ' '],
-        [' ', ' ', ' ', ' ', ' ', ' ', ' ', ' '],
-        [' ', ' ', ' ', ' ', ' ', ' ', ' ', ' '],
-        ['P', 'P', 'P', 'P', 'P', 'P', 'P', 'P'],
-        ['R', 'N', 'B', 'Q', 'K', 'B', 'N', 'R']
-    ]
-"""
-
 def update_board(board):
     print(board)
     # print('    a   b   c   d   e   f   g   h')
@@ -80,46 +65,6 @@ def move(comp, board, turn):
                 print("Sorry, you can't make that move. Please enter a different move.")
         board.push(move_choice)
         print(f"You moved: {move_choice}")
-        # reminder to print when a move removes an opponent piece
-    
-"""
-def move_piece(board, move_choice, colour):
-    src = move_choice[:2]
-    dest = move_choice[2:]
-
-    srcc = ord(src[0]) - ord('a')
-    # print('srcc: ', srcc)
-    srcr = 8-int(src[1])
-    # print('srcr: ', srcr)
-
-    destc = ord(dest[0]) - ord('a')
-    destr = 8-int(dest[1])
-    # print('drcr: ', destr)
-    # print('drcr: ', destc)
-
-    # print('debug: ', board[srcr][srcc]) 
-
-    board[destr][destc] = board[srcr][srcc]
-    board[srcr][srcc] = ' '
-
-    print(colour.upper(), ' moved from', src, ' to', dest, '\n')
-    update_board(board)
-
-
-
-def move(comp, board, turn):
-    if turn == 0: 
-        if 'w' in comp:
-            move_piece(board, 'e2e4', 'w')
-        else:
-            move_piece(board, 'e7e5', 'b')
-    else:
-        move_choice = ''
-        while len(move_choice) != 4:
-            move_choice = input('Enter move: (eg. f2f4): ')
-        move_piece(board, move_choice, 'w' if 'b' in comp else 'b')
-
-"""
 
 def main():
     comp = init_set()
@@ -152,11 +97,3 @@ def main():
 
 if __name__ == '__main__':
     main()
-
-    """"
-    extra:
-        - more clear movement ('White Queen moved c3 to c7)
-        - see list of 'taken' pieces
-        - make board more clear. UI graphics?
-        - potential bug -- won't let my pawn take opp. Queen (screenshotted)
-    """
